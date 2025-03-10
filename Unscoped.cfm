@@ -1,4 +1,4 @@
-<CFSETTING enablecfoutputonly="true" requesttimeout="2">
+<CFSETTING enablecfoutputonly="true" requesttimeout="30">
 <!---
 Location of unscoped.log is in the ColdFusion logs directory.
 Place the hf*.jar file in [cfhome]\cfusion\libs\update
@@ -303,7 +303,6 @@ Displaying results from #EncodeForHTML(UnscopeFile)#<br>
 									</CFIF>
 								</CFIF>
 
-								<!--- Hide1: #Hide# - LineNo: #LineNo# InCFScript: #InCFScript# - Loc: #Loc# - Loc2: #Loc2# - Loc3: #Loc3# - Loc4a: #Loc4a# -Loc4b: #Loc4b# Loc5: [#Loc5#] Loc6: [#Loc6#] TotalQuotesFound: #TotalQuotesFound# - #EncodeForHTML(Out)#<br> --->
 								<CFIF Hide EQ 0>
 									<!--- Highlight --->
 									<CFSET Out=ReplaceNoCase(Out,VarMatches[i],Left(VarMatches[i],1) & "[[Highlight]]" &  Mid(VarMatches[i],2,Len(VarMatches[i])-2) & "[[/Highlight]]" & Right(VarMatches[i],1))>
@@ -311,7 +310,6 @@ Displaying results from #EncodeForHTML(UnscopeFile)#<br>
 									<!--- Don't highlight --->
 									<CFSET Out=ReplaceNoCase(Out,Varmatches[i],Left(VarMatches[i],1) & "<x>#RepVariable#</x>" & Right(VarMatches[i],1))>
 								</CFIF>
-								<!--- Hide2: #Hide# - LineNo: #LineNo# InCFScript: #InCFScript# -- Loc: #Loc# - Loc2: #Loc2# - Loc3: #Loc3# - Loc4a: #Loc4a# Loc4b: #Loc4b# Loc5: [#Loc5#] Loc6: [#Loc6#] TotalQuotesFound: #TotalQuotesFound# - #EncodeForHTML(Out)#<br><br> --->
 							</CFLOOP>
 							<CFSET LineShown=0>
 							<CFIF CurrLine NEQ Replace(Replace(Out,"<x>","","ALL"),"</x>","","ALL")>
