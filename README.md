@@ -16,7 +16,7 @@ Example code that uses the unscoped URL.Foo variable but the URL scope is not se
 <!DOCTYPE html>
 <html>
 <body>
-Foo: #Foo#<br>
+Foo: #FoO#<br>
 IsNumeric: #IsNumeric(Foo)#
 <form>
 Foo: <input type="text" name="Foo" value="#Foo#">
@@ -36,6 +36,11 @@ Foo: <input type="text" name="Foo" value="#Foo#">
 cfparam(name="Too", default="#Foo#", pattern="");
 writeoutput("Foo: #Foo#<br>");
 </cfscript>
+
+<CFSET Foo=0>
+<CFOUTPUT>
+Foo: #Foo#<br>
+</CFOUTPUT>
 ```
 
-![Unscope Report](https://www.johnwbartlett.com/GitHub/Unscoped/UnscopeReport1.png)
+![Unscope Report](https://www.johnwbartlett.com/GitHub/Unscoped/Unscoped.png)
